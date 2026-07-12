@@ -1,0 +1,15 @@
+cat << 'EOF' > docker-compose.yml
+services:
+  openproject:
+    image: openproject/community:latest
+    container_name: openproject_local
+    ports:
+      - "8090:80"
+    environment:
+      - OPENPROJECT_HOST__NAME=localhost:8090
+      - OPENPROJECT_HTTPS=false
+      - SECRET_KEY_BASE=chave_temporaria_desenvolvimento_local_12345
+    volumes:
+      - ./data/pgdata:/var/openproject/pgdata
+      - ./data/assets:/var/openproject/assets
+EOF

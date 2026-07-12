@@ -1,0 +1,4 @@
+cat << 'EOF' > .gitignore
+data/
+.env
+EOF
