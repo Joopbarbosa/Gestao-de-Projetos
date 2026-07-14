@@ -1,3 +1,5 @@
 data/
 backups/
 .env
+logs/
+__pycache__/
