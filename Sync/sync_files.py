@@ -5,8 +5,9 @@ Dois fluxos independentes:
 
 1. Work packages: para cada projeto, percorre as work packages via API v3,
    identifica os anexos e a versão associada, e copia o arquivo
-   correspondente de ./data/assets/files/attachment/file/<id>/<nome> para
-   ./data/nextcloud/data/admin/files/OpenProject Files/<Projeto>/<Versão>/<nome>.
+   correspondente de ../OpenProject/data/assets/files/attachment/file/<id>/<nome>
+   para dentro do container do Nextcloud, em
+   /var/www/html/data/admin/files/OpenProject Files/<Projeto>/<Versão>/<nome>.
 
 2. Documentos de projeto: a API v3 desta instalação do OpenProject não expõe
    um recurso de "documents" (não está listado no discovery de /api/v3, e a
@@ -40,11 +41,13 @@ from requests.auth import HTTPBasicAuth
 
 BASE_DIR = Path(__file__).resolve().parent
 ENV_FILE = BASE_DIR / ".env"
-STATE_FILE = BASE_DIR / "data" / "sync_state.json"
+STATE_FILE = BASE_DIR / "sync_state.json"
 LOG_FILE = BASE_DIR / "logs" / "sync.log"
-SOURCE_DIR = BASE_DIR / "data" / "assets" / "files" / "attachment" / "file"
+# Anexos brutos do OpenProject agora vivem na pasta irmã OpenProject/.
+SOURCE_DIR = BASE_DIR.parent / "OpenProject" / "data" / "assets" / "files" / "attachment" / "file"
 
-OPENPROJECT_API = "http://localhost:8090/api/v3"
+OPENPROJECT_BASE_URL_DEFAULT = "http://localhost:8090"
+OPENPROJECT_API = f"{OPENPROJECT_BASE_URL_DEFAULT}/api/v3"
 NEXTCLOUD_CONTAINER = "nextcloud_app"
 NEXTCLOUD_DEST_BASE = "/var/www/html/data/admin/files/OpenProject Files"
 NEXTCLOUD_SCAN_PATH = "/admin/files/OpenProject Files"
@@ -202,8 +205,11 @@ def fetch_documents_with_attachments() -> list[dict]:
 
 
 def main() -> int:
+    global OPENPROJECT_API
     setup_logging()
     env = load_env(ENV_FILE)
+    base_url = env.get("OPENPROJECT_BASE_URL", OPENPROJECT_BASE_URL_DEFAULT).rstrip("/")
+    OPENPROJECT_API = f"{base_url}/api/v3"
     token = env.get("OPENPROJECT_API_TOKEN")
     if not token:
         logging.error(

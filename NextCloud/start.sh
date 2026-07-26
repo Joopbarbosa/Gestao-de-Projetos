@@ -1,5 +1,5 @@
 #!/bin/bash
-# Controla toda a infraestrutura (OpenProject + Nextcloud + Postgres + Redis) a partir da raiz.
+# Controla a stack do Nextcloud (nextcloud + nextcloud_db + nextcloud_redis).
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -7,11 +7,11 @@ cd "$ROOT_DIR"
 
 case "${1:-}" in
   up)
-    echo "Subindo toda a infraestrutura..."
+    echo "Subindo Nextcloud..."
     docker compose up -d
     ;;
   down)
-    echo "Parando toda a infraestrutura..."
+    echo "Parando Nextcloud..."
     docker compose down
     ;;
   logs)

@@ -3,3 +3,5 @@ backups/
 .env
 logs/
 __pycache__/
+*.bak-*
+sync_state.json
