@@ -1,0 +1,7 @@
+# Mapa texto -> href de custom_option. Atualizar manualmente quando novos valores forem cadastrados no OpenProject.
+sistema:
+  "Back/Front": "/api/v3/custom_options/1"
+modulo:
+  "Outros": "/api/v3/custom_options/12"
+gravidade:
+  "Medio": "/api/v3/custom_options/21"
