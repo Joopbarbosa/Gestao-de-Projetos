@@ -13,7 +13,7 @@ Workspace: **Pense Software**
 |---|
 | Pense e Precifique |
 | Processos Operacionais |
-| Script OP |
+| Pense Software |
 
 > Campo variável por tarefa — sempre indicado manualmente no CSV.
 
