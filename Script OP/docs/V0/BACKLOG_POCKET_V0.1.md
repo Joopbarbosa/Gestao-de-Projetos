@@ -1,13 +1,9 @@
-# BACKLOG_POCKET_V1.0.md — Script OP
-> Baseado em: BUSINESS_RULES_ScriptOP.md, SCENARIOS_EP-01_ScriptOP.md
+# BACKLOG_POCKET_V0.1.md — Script OP (Versão Mínima)
+> Baseado em: BUSINESS_RULES_ScriptOP.md, SCENARIOS_EP-01_ScriptOP.md (reduzido)
 > Fatiamento por Vertical Slicing (valor funcional, não camada de código)
+> **Status:** Escopo reduzido — sem hierarquia Pai/Filho nesta versão
 
 ---
-
-## [Fundação] - Definir arquitetura e setup do projeto
-- [ ] **Estrutura:** definir organização de pastas/módulos Python (separação lógica de negócio × apresentação, conforme PRD seção 4)
-- [ ] **Estrutura:** decidir codificação técnica da referência Pai/Filho no CSV (pendente da skill-estrutura)
-- [ ] **Spec:** N/A — decisão estrutural pura, sem novo delta de regra de negócio
 
 ## [Conexão] - Validar conexão com a API do OpenProject antes de processar
 - [ ] **Backend:** implementar checagem de autenticação/conexão (RN-007) como pré-condição do script
@@ -30,20 +26,12 @@
 - [ ] **Spec:** Restrição Global (mapeamento estático) já coberta em BUSINESS_RULES
 
 ## [Criação] - Criar Work Package simples via API
-- [ ] **Backend:** implementar chamada de criação (POST) para uma linha válida, sem hierarquia
+- [ ] **Backend:** implementar chamada de criação (POST) para uma linha válida
 - [ ] **Spec:** RN-002, Cenário 001 já cobertos
-
-## [Criação] - Criar hierarquia Pai/Filho
-- [ ] **Backend:** implementar criação respeitando vínculo Pai/Filho entre linhas do mesmo CSV
-- [ ] **Spec:** Relacionamento Pai/Filho, Cenário 007 já cobertos
 
 ## [Resiliência] - Isolar falhas por linha sem interromper o arquivo
 - [ ] **Backend:** implementar RN-003 (linha inválida não bloqueia as demais)
 - [ ] **Spec:** RN-003, Cenário 010 já cobertos
-
-## [Resiliência] - Propagar bloqueio de Pai para Filhos
-- [ ] **Backend:** implementar RN-004 (falha em linha-Pai bloqueia também as Filhas)
-- [ ] **Spec:** RN-004, Cenário 008 já cobertos
 
 ## [Feedback] - Reportar resultado no terminal
 - [ ] **Backend:** implementar output por linha (sucesso com ID / erro com motivo) no terminal
@@ -51,8 +39,9 @@
 
 ---
 
-## Fora deste Pocket (v1, mas não bloqueante — considerar em iteração futura)
-- Fluxo de edição/atualização de Work Packages existentes (PRD seção 5, marcado como desejável não crítico)
+## Fora de escopo desta versão (v0 mínima)
+- Hierarquia Pai/Filho (coluna `pai_linha`, RN-004) — fica para v1 ou iteração futura.
+- Fluxo de edição/atualização de Work Packages existentes — fica para futuro.
 
-## Fora de escopo total da v1 (registrado no PRD)
-- GUI/.exe Windows, dashboards, multi-usuário, log em arquivo — v2 ou futuro
+## Fora de escopo total (registrado no PRD original)
+- GUI/.exe Windows, dashboards, multi-usuário, log em arquivo — v2 ou futuro.

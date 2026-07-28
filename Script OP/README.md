@@ -22,8 +22,14 @@ Preencha `.env` com a URL da instância do OpenProject e o token de API (`OPENPR
 
 ## Uso
 
-> A lógica do CLI ainda não está implementada nesta etapa (setup fundacional). O comando abaixo é um placeholder do formato esperado:
+```bash
+PYTHONPATH=src python -m script_op.main caminho/para/arquivo.csv
+```
+
+Exemplo com o CSV de teste incluído no repositório:
 
 ```bash
-python -m script_op.main --csv caminho/para/arquivo.csv
+PYTHONPATH=src python -m script_op.main exemplo.csv
 ```
+
+O script valida a conexão com a API antes de processar qualquer linha (RN-007). Linhas inválidas são puladas e reportadas — não interrompem o processamento das demais (RN-003). Ao final, imprime um resumo com total de sucesso/erro.

@@ -1,7 +1,28 @@
 # Mapa texto -> href de custom_option. Atualizar manualmente quando novos valores forem cadastrados no OpenProject.
+# Todos os valores abaixo foram confirmados diretamente na base do OpenProject local (openproject_local) em 2026-07-27.
 sistema:
   "Back/Front": "/api/v3/custom_options/1"
+  "BackEnd": "/api/v3/custom_options/2"
+  "FrontEnd": "/api/v3/custom_options/3"
+  "PDF": "/api/v3/custom_options/4"
+  "Processual": "/api/v3/custom_options/5"
+  "Banco de Dados": "/api/v3/custom_options/13"
+  "Mobile": "/api/v3/custom_options/14"
 modulo:
+  "Dashboard": "/api/v3/custom_options/6"
+  "Clientes": "/api/v3/custom_options/7"
+  "Produtos": "/api/v3/custom_options/8"
+  "Catálogos": "/api/v3/custom_options/9"
+  "Produção": "/api/v3/custom_options/10"
+  "Orçamento": "/api/v3/custom_options/15"
+  "Compras": "/api/v3/custom_options/16"
+  "Agenda": "/api/v3/custom_options/17"
+  "Auditoria": "/api/v3/custom_options/18"
   "Outros": "/api/v3/custom_options/12"
+  "Banco de Dados": "/api/v3/custom_options/23"
+  "Repositorio": "/api/v3/custom_options/24"
 gravidade:
+  "Critico": "/api/v3/custom_options/19"
+  "Grave": "/api/v3/custom_options/20"
   "Medio": "/api/v3/custom_options/21"
+  "Baixo": "/api/v3/custom_options/22"
