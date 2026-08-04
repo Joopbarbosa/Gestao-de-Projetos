@@ -4,6 +4,13 @@ from dataclasses import dataclass, field
 
 TIPOS_COM_GRAVIDADE = {"Bug", "Tech Debt"}
 
+PRIORIDADES_PT = {
+    "Baixa": "Low",
+    "Normal": "Normal",
+    "Alta": "High",
+    "Urgente": "Immediate",
+}
+
 CAMPOS_OBRIGATORIOS = [
     "assunto",
     "tipo",
@@ -49,8 +56,10 @@ def validar_linha(dados: dict, ctx: ContextoValidacao) -> list[str]:
         erros.append(f"Situação '{situacao}' inválida")
 
     prioridade = dados.get("prioridade")
-    if prioridade and prioridade not in ctx.prioridades_validas:
-        erros.append(f"Prioridade '{prioridade}' inválida")
+    if prioridade:
+        prioridade_en = PRIORIDADES_PT.get(prioridade, prioridade)
+        if prioridade not in ctx.prioridades_validas and prioridade_en not in ctx.prioridades_validas:
+            erros.append(f"Prioridade '{prioridade}' inválida")
 
     modulo = dados.get("modulo")
     if modulo and modulo not in ctx.modulos_validos:
@@ -87,3 +96,9 @@ def validar_linha(dados: dict, ctx: ContextoValidacao) -> list[str]:
             erros.append(f"Versão '{versao}' não existe no projeto '{projeto}'")
 
     return erros
+
+
+def resolver_prioridade(prioridade: str) -> str:
+    """Converte prioridade em português (CSV) para o valor esperado pela API (inglês).
+    Mantém compatibilidade retroativa com CSVs que já usam os valores em inglês."""
+    return PRIORIDADES_PT.get(prioridade, prioridade)

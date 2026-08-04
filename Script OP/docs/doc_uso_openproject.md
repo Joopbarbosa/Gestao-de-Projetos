@@ -63,12 +63,14 @@ Dois conceitos distintos, não redundantes:
 
 ## 4.1 Prioridade — valores nativos
 
-| Valor |
-|---|
-| Low *(padrão)* |
-| Normal |
-| High |
-| Immediate |
+> A UI do OpenProject exibe as prioridades em português. O CSV deve usar os valores em português abaixo — o script converte automaticamente para o valor em inglês esperado pela API. Valores em inglês no CSV continuam funcionando (compatibilidade retroativa).
+
+| Valor no CSV (português) | Valor na API (inglês) |
+|---|---|
+| Baixa *(padrão)* | Low |
+| Normal | Normal |
+| Alta | High |
+| Urgente | Immediate |
 
 ---
 
@@ -141,7 +143,7 @@ Ao processar uma linha do CSV, o script deve validar:
 
 1. **Tipo** deve ser um dos 8 valores válidos (seção 2).
 2. **Situação** deve ser um dos 12 valores válidos (seção 3).
-3. **Prioridade** deve ser um dos valores nativos: Low *(padrão)*, Normal, High, Immediate.
+3. **Prioridade** deve ser um dos valores em português: Baixa *(padrão)*, Normal, Alta, Urgente (valores em inglês também são aceitos por compatibilidade — ver seção 4.1).
 4. **Gravidade**:
    - Se Tipo ∈ {Bug, Tech Debt} → obrigatório, valor ∈ {Critico, Grave, Medio, Baixo}.
    - Se Tipo ∉ {Bug, Tech Debt} → usar "-".

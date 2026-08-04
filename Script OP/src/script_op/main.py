@@ -7,7 +7,7 @@ import typer
 from dotenv import load_dotenv
 
 from script_op import api_client, csv_parser, custom_fields, output
-from script_op.validators import ContextoValidacao, validar_linha
+from script_op.validators import ContextoValidacao, resolver_prioridade, validar_linha
 
 app = typer.Typer()
 
@@ -30,7 +30,7 @@ def _montar_payload(dados: dict, client: api_client.OpenProjectClient, mapa_cust
     links = {
         "type": {"href": client.get_types()[dados["tipo"]]},
         "status": {"href": client.get_statuses()[dados["situacao"]]},
-        "priority": {"href": client.get_priorities()[dados["prioridade"]]},
+        "priority": {"href": client.get_priorities()[resolver_prioridade(dados["prioridade"])]},
         "project": {"href": client.get_projects()[dados["projeto"]]},
         "version": {"href": versoes[dados["versao"]]},
     }
