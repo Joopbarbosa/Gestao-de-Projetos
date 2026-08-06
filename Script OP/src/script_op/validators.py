@@ -10,6 +10,7 @@ PRIORIDADES_PT = {
     "Alta": "High",
     "Urgente": "Immediate",
 }
+PRIORIDADES_EN_PARA_PT = {ingles: pt for pt, ingles in PRIORIDADES_PT.items()}
 
 CAMPOS_OBRIGATORIOS = [
     "assunto",
@@ -57,8 +58,8 @@ def validar_linha(dados: dict, ctx: ContextoValidacao) -> list[str]:
 
     prioridade = dados.get("prioridade")
     if prioridade:
-        prioridade_en = PRIORIDADES_PT.get(prioridade, prioridade)
-        if prioridade not in ctx.prioridades_validas and prioridade_en not in ctx.prioridades_validas:
+        prioridade_pt = PRIORIDADES_EN_PARA_PT.get(prioridade, prioridade)
+        if prioridade not in ctx.prioridades_validas and prioridade_pt not in ctx.prioridades_validas:
             erros.append(f"Prioridade '{prioridade}' inválida")
 
     modulo = dados.get("modulo")
@@ -99,6 +100,6 @@ def validar_linha(dados: dict, ctx: ContextoValidacao) -> list[str]:
 
 
 def resolver_prioridade(prioridade: str) -> str:
-    """Converte prioridade em português (CSV) para o valor esperado pela API (inglês).
-    Mantém compatibilidade retroativa com CSVs que já usam os valores em inglês."""
-    return PRIORIDADES_PT.get(prioridade, prioridade)
+    """A API do OpenProject usa os nomes de prioridade em português (Baixa/Normal/Alta/Urgente).
+    Mantém compatibilidade retroativa com CSVs legados que ainda usam os valores em inglês."""
+    return PRIORIDADES_EN_PARA_PT.get(prioridade, prioridade)
