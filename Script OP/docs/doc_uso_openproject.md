@@ -110,6 +110,8 @@ Dois conceitos distintos, não redundantes:
 | Outros *(padrão)* |
 | Banco de Dados |
 | Repositorio |
+| Insumos *(nome cadastrado na API é "Insumo", singular — usar "Insumos" no CSV)* |
+| Configurações |
 
 ### 5.3 Sistema
 - Formato: Lista (seleção única)

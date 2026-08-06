@@ -1,5 +1,6 @@
 # Mapa texto -> href de custom_option. Atualizar manualmente quando novos valores forem cadastrados no OpenProject.
 # Todos os valores abaixo foram confirmados diretamente na base do OpenProject local (openproject_local) em 2026-07-27.
+# "Insumos" e "Configurações" (modulo) confirmados via /work_packages/form em 2026-08-06.
 sistema:
   "Back/Front": "/api/v3/custom_options/1"
   "BackEnd": "/api/v3/custom_options/2"
@@ -21,6 +22,8 @@ modulo:
   "Outros": "/api/v3/custom_options/12"
   "Banco de Dados": "/api/v3/custom_options/23"
   "Repositorio": "/api/v3/custom_options/24"
+  "Insumos": "/api/v3/custom_options/25"
+  "Configurações": "/api/v3/custom_options/26"
 gravidade:
   "Critico": "/api/v3/custom_options/19"
   "Grave": "/api/v3/custom_options/20"
