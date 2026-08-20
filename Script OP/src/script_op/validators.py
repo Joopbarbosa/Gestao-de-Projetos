@@ -1,8 +1,6 @@
-"""Validações de linha do CSV (RN-001, RN-002, RN-005)."""
+"""Validações de linha do CSV (RN-002, RN-005)."""
 
 from dataclasses import dataclass, field
-
-TIPOS_COM_GRAVIDADE = {"Bug", "Tech Debt"}
 
 PRIORIDADES_PT = {
     "Baixa": "Low",
@@ -35,7 +33,6 @@ class ContextoValidacao:
     projetos_validos: set
     sistemas_validos: set
     modulos_validos: set
-    gravidades_validas: set
     versoes_por_projeto: dict = field(default_factory=dict)
 
 
@@ -73,17 +70,6 @@ def validar_linha(dados: dict, ctx: ContextoValidacao) -> list[str]:
     projeto = dados.get("projeto")
     if projeto and projeto not in ctx.projetos_validos:
         erros.append(f"Projeto '{projeto}' inválido")
-
-    gravidade = dados.get("gravidade", "")
-    if tipo in TIPOS_COM_GRAVIDADE:
-        if gravidade not in ctx.gravidades_validas:
-            erros.append(
-                f"Gravidade obrigatória para tipo '{tipo}' "
-                f"(valores válidos: {', '.join(sorted(ctx.gravidades_validas))})"
-            )
-    elif tipo:
-        if gravidade not in ("", "-"):
-            erros.append(f"Gravidade deve ser '-' para tipo '{tipo}'")
 
     versao = dados.get("versao")
     if versao and projeto in ctx.projetos_validos:

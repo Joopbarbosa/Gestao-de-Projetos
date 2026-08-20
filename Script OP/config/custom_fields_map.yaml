@@ -24,8 +24,3 @@ modulo:
   "Repositorio": "/api/v3/custom_options/24"
   "Insumos": "/api/v3/custom_options/25"
   "Configurações": "/api/v3/custom_options/26"
-gravidade:
-  "Critico": "/api/v3/custom_options/19"
-  "Grave": "/api/v3/custom_options/20"
-  "Medio": "/api/v3/custom_options/21"
-  "Baixo": "/api/v3/custom_options/22"

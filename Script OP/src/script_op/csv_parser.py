@@ -12,7 +12,6 @@ COLUNAS_ESPERADAS = [
     "versao",
     "modulo",
     "sistema",
-    "gravidade",
     "projeto",
 ]
 
