@@ -17,7 +17,6 @@ Representa uma linha do arquivo de entrada, candidata a se tornar um Work Packag
 | Situação | Sim | Um dos 12 valores válidos (ver doc de uso) |
 | Prioridade | Sim | Low, Normal, High, Immediate |
 | Versão | Sim | Deve existir no Projeto informado |
-| Módulo | Sim | Um dos valores válidos do custom field Módulo |
 | Sistema | Sim | Um dos valores válidos do custom field Sistema |
 | Projeto | Sim | Um dos projetos existentes no OpenProject |
 
@@ -27,7 +26,7 @@ Entidade criada no OpenProject a partir de uma Linha CSV validada com sucesso.
 **Estados:** não modelados nesta v0 (a v0 não gerencia transição de estado pós-criação).
 
 ### Custom Option
-Valor possível de um Custom Field (Sistema, Módulo) no OpenProject, identificado por um `href` (ex: `/api/v3/custom_options/21`). Mapeamento texto → `href` é **fixo/estático na v0** — atualizado manualmente quando novos valores forem cadastrados no OpenProject (fora do escopo do script detectar automaticamente).
+Valor possível de um Custom Field (Sistema) no OpenProject, identificado por um `href` (ex: `/api/v3/custom_options/21`). Mapeamento texto → `href` é **fixo/estático na v0** — atualizado manualmente quando novos valores forem cadastrados no OpenProject (fora do escopo do script detectar automaticamente).
 
 ---
 
@@ -40,7 +39,7 @@ Valor possível de um Custom Field (Sistema, Módulo) no OpenProject, identifica
 ## Regras de Negócio
 
 **RN-002 — Todos os campos-base são obrigatórios**
-Assunto, Tipo, Situação, Prioridade, Versão, Módulo, Sistema, Projeto são obrigatórios em toda Linha CSV. Descrição é opcional.
+Assunto, Tipo, Situação, Prioridade, Versão, Sistema, Projeto são obrigatórios em toda Linha CSV. Descrição é opcional.
 
 **RN-003 — Erro de linha não interrompe o arquivo**
 Se uma Linha CSV falhar em qualquer validação (BLOQUEIO), o script pula apenas essa linha e continua processando as demais linhas independentes.
@@ -65,7 +64,7 @@ Antes de processar qualquer linha do CSV, o script deve validar a conexão e aut
   1. João roda o script apontando para o arquivo CSV.
   2. O script valida a conexão com a API (RN-007).
   3. Para cada Linha CSV, o script valida os campos (RN-002, RN-005).
-  4. Para linhas válidas, o script resolve os valores de Sistema/Módulo para `href` de Custom Option.
+  4. Para linhas válidas, o script resolve o valor de Sistema para `href` de Custom Option.
   5. O script cria o Work Package via API v3.
   6. O script imprime no terminal o resultado de cada linha: sucesso (com ID gerado) ou erro (com motivo).
 - **Fluxo Alternativo — Linha inválida:** linha é pulada (RN-003), processamento continua.

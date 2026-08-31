@@ -16,7 +16,6 @@ CAMPOS_OBRIGATORIOS = [
     "situacao",
     "prioridade",
     "versao",
-    "modulo",
     "sistema",
     "projeto",
 ]
@@ -32,7 +31,6 @@ class ContextoValidacao:
     prioridades_validas: set
     projetos_validos: set
     sistemas_validos: set
-    modulos_validos: set
     versoes_por_projeto: dict = field(default_factory=dict)
 
 
@@ -58,10 +56,6 @@ def validar_linha(dados: dict, ctx: ContextoValidacao) -> list[str]:
         prioridade_pt = PRIORIDADES_EN_PARA_PT.get(prioridade, prioridade)
         if prioridade not in ctx.prioridades_validas and prioridade_pt not in ctx.prioridades_validas:
             erros.append(f"Prioridade '{prioridade}' inválida")
-
-    modulo = dados.get("modulo")
-    if modulo and modulo not in ctx.modulos_validos:
-        erros.append(f"Módulo '{modulo}' inválido")
 
     sistema = dados.get("sistema")
     if sistema and sistema not in ctx.sistemas_validos:

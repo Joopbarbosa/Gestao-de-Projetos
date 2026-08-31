@@ -10,7 +10,6 @@ COLUNAS_ESPERADAS = [
     "situacao",
     "prioridade",
     "versao",
-    "modulo",
     "sistema",
     "projeto",
 ]

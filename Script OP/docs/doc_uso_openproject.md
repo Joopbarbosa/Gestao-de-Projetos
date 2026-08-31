@@ -90,30 +90,7 @@ Dois conceitos distintos, não redundantes:
 | Baixo |
 | - *(usar quando o tipo não for Bug/Tech Debt)* |
 
-### 5.2 Módulo
-- Formato: Lista (seleção única)
-- Obrigatório: sim
-- Habilitado para: Task, Epic, Feature, Refactor, Doc, Bug, Tech Debt (e possivelmente Infra — confirmar)
-- Padrão: **Outros**
-
-| Valor |
-|---|
-| Dashboard |
-| Clientes |
-| Produtos |
-| Catálogos |
-| Produção |
-| Orçamento |
-| Compras |
-| Agenda |
-| Auditoria |
-| Outros *(padrão)* |
-| Banco de Dados |
-| Repositorio |
-| Insumos *(nome cadastrado na API é "Insumo", singular — usar "Insumos" no CSV)* |
-| Configurações |
-
-### 5.3 Sistema
+### 5.2 Sistema
 - Formato: Lista (seleção única)
 - Obrigatório: sim
 - Habilitado para: todos os tipos, todos os projetos
@@ -124,7 +101,6 @@ Dois conceitos distintos, não redundantes:
 | Back/Front *(padrão)* |
 | BackEnd |
 | FrontEnd |
-| PDF |
 | Processual |
 | Banco de Dados |
 | Mobile |
@@ -149,14 +125,13 @@ Ao processar uma linha do CSV, o script deve validar:
 4. **Gravidade**:
    - Se Tipo ∈ {Bug, Tech Debt} → obrigatório, valor ∈ {Critico, Grave, Medio, Baixo}.
    - Se Tipo ∉ {Bug, Tech Debt} → usar "-".
-5. **Módulo** obrigatório, valor deve pertencer à lista da seção 5.2.
-6. **Sistema** obrigatório, valor deve pertencer à lista da seção 5.3.
-7. **Projeto** obrigatório, deve ser um dos projetos ativos (seção 1).
-8. **Versão** obrigatório apenas se aplicável ao fluxo da tarefa — validar contra as versões existentes do projeto informado (via API, já que a lista muda com o tempo).
+5. **Sistema** obrigatório, valor deve pertencer à lista da seção 5.2.
+6. **Projeto** obrigatório, deve ser um dos projetos ativos (seção 1).
+7. **Versão** obrigatório apenas se aplicável ao fluxo da tarefa — validar contra as versões existentes do projeto informado (via API, já que a lista muda com o tempo).
 
 > Custom fields usam sintaxe própria na API v3 (`customField<ID>`), diferente dos campos nativos. IDs **confirmados via API** (`GET /api/v3/work_packages/{id}`, campo `_links`):
 > - Sistema → `customField1` — ex: `{"title": "Back/Front", "href": "/api/v3/custom_options/1"}`
-> - Módulo → `customField2` — ex: `{"title": "Outros", "href": "/api/v3/custom_options/12"}`
+> - Módulo (`customField2`) foi removido do OpenProject — confirmado via API em 2026-08-30, não usar mais no script.
 > - Gravidade → `customField3` — ex: `{"title": "Medio", "href": "/api/v3/custom_options/21"}`; retorna `{"href": null, "title": null}` quando o tipo não usa o campo (ex: Epic)
 >
 > Valores de campos de lista vêm em `_links.customFieldN`, não em `attributes` direto — importante pro script: ao **criar** um work package via API, o payload de escrita usa `_links.customFieldN.href` apontando pro `custom_option` desejado (ex: `/api/v3/custom_options/21`), não o texto puro.
@@ -166,14 +141,14 @@ Ao processar uma linha do CSV, o script deve validar:
 ## 8. Campos do CSV (v1)
 
 ```
-Assunto, Descrição, Tipo, Situação, Prioridade, Versão, Módulo, Sistema, Gravidade, Projeto
+Assunto, Descrição, Tipo, Situação, Prioridade, Versão, Sistema, Gravidade, Projeto
 ```
 
 ---
 
 ## 9. Próximos passos
 
-- [ ] Puxar `/api/v3/custom_options` completo para mapear texto → ID de todos os valores de Módulo, Sistema e Gravidade — necessário pro script converter texto do CSV → href da API
+- [ ] Puxar `/api/v3/custom_options` completo para mapear texto → ID de todos os valores de Sistema e Gravidade — necessário pro script converter texto do CSV → href da API
 - [ ] Escrever script Python (CSV → OpenProject API v3)
-- [ ] v2: dashboards de bugs/módulos (somente leitura)
+- [ ] v2: dashboards de bugs (somente leitura)
 - [ ] Futuro: GUI/.exe para Windows

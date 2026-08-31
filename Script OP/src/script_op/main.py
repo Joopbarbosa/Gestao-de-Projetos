@@ -19,7 +19,6 @@ def _montar_contexto(client: api_client.OpenProjectClient, mapa_custom_fields: d
         prioridades_validas=set(client.get_priorities()),
         projetos_validos=set(client.get_projects()),
         sistemas_validos=set(mapa_custom_fields.get("sistema", {})),
-        modulos_validos=set(mapa_custom_fields.get("modulo", {})),
         versoes_por_projeto={},
     )
 
@@ -33,9 +32,7 @@ def _montar_payload(dados: dict, client: api_client.OpenProjectClient, mapa_cust
         "project": {"href": client.get_projects()[dados["projeto"]]},
         "version": {"href": versoes[dados["versao"]]},
     }
-    links.update(
-        custom_fields.resolve_custom_fields(mapa_custom_fields, dados["sistema"], dados["modulo"])
-    )
+    links.update(custom_fields.resolve_custom_fields(mapa_custom_fields, dados["sistema"]))
 
     payload = {"subject": dados["assunto"], "_links": links}
     if dados.get("descricao"):

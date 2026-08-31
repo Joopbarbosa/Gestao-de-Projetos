@@ -6,7 +6,6 @@ import yaml
 
 CUSTOM_FIELD_IDS = {
     "sistema": "customField1",
-    "modulo": "customField2",
 }
 
 _DEFAULT_MAP_PATH = Path(__file__).resolve().parents[2] / "config" / "custom_fields_map.yaml"
@@ -27,9 +26,8 @@ def resolve_href(mapa: dict, categoria: str, texto: str) -> str:
     return href
 
 
-def resolve_custom_fields(mapa: dict, sistema: str, modulo: str) -> dict:
+def resolve_custom_fields(mapa: dict, sistema: str) -> dict:
     """Monta o trecho de `_links` do payload de criação para os custom fields da linha."""
     return {
         CUSTOM_FIELD_IDS["sistema"]: {"href": resolve_href(mapa, "sistema", sistema)},
-        CUSTOM_FIELD_IDS["modulo"]: {"href": resolve_href(mapa, "modulo", modulo)},
     }
