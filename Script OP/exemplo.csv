@@ -1,5 +1,0 @@
-assunto,descricao,tipo,situacao,prioridade,versao,sistema,projeto
-Ajustar layout do dashboard principal,Revisar espaçamento dos cards no dashboard,Task,BackLog,Normal,v0.7,Back/Front,Pense e Precifique
-Erro ao salvar cliente com CPF duplicado,Sistema permite cadastrar dois clientes com o mesmo CPF,Bug,BackLog,Alta,D0.0,BackEnd,Processos Operacionais
-Refatorar consulta de relatório de produção,Query atual está lenta em bases grandes,Tech Debt,Prioridade,Baixa,Backlog,Banco de Dados,Pense e Precifique
-,Linha inválida de propósito - falta o Assunto,Task,BackLog,Normal,v0.7,Back/Front,Pense e Precifique

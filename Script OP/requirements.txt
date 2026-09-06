@@ -1,4 +1,0 @@
-typer
-requests
-pyyaml
-python-dotenv
