@@ -1,4 +1,3 @@
-cat << 'EOF' > .gitignore
 data/
+backups/
 .env
-EOF

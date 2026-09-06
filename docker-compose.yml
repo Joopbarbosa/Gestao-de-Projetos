@@ -2,12 +2,14 @@ services:
   openproject:
     image: openproject/openproject:14
     container_name: openproject_local
+    restart: unless-stopped
     ports:
       - "8090:80"
     environment:
-      - OPENPROJECT_HOST__NAME=localhost:8090
-      - OPENPROJECT_HTTPS=false
-      - SECRET_KEY_BASE=chave_temporaria_desenvolvimento_local_12345
+      - OPENPROJECT_HOST__NAME=${OPENPROJECT_HOST_NAME}
+      - OPENPROJECT_HTTPS=${OPENPROJECT_HTTPS}
+      - SECRET_KEY_BASE=${OPENPROJECT_SECRET_KEY_BASE}
     volumes:
       - ./data/pgdata:/var/openproject/pgdata
       - ./data/assets:/var/openproject/assets
+      - ./data/files:/var/openproject/files

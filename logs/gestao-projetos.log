@@ -1,0 +1,283 @@
+===== 2026-07-16 00:05:50 - iniciando =====
+Subindo containers...
+ Network infraestrutura_infra Creating 
+ Network infraestrutura_infra Created 
+ Container nextcloud_postgres Creating 
+ Container nextcloud_redis Creating 
+ Container openproject_local Creating 
+ Container nextcloud_redis Created 
+ Container openproject_local Created 
+ Container nextcloud_postgres Created 
+ Container nextcloud_app Creating 
+ Container nextcloud_app Created 
+ Container openproject_local Starting 
+ Container nextcloud_postgres Starting 
+ Container nextcloud_redis Starting 
+ Container nextcloud_postgres Started 
+ Container nextcloud_redis Started 
+ Container nextcloud_app Starting 
+ Container openproject_local Started 
+ Container nextcloud_app Started 
+Aguardando OpenProject responder em http://localhost:8090...
+===== 2026-07-16 15:50:53 - iniciando =====
+Subindo containers...
+ Network infraestrutura_infra Creating 
+ Network infraestrutura_infra Created 
+ Container nextcloud_redis Creating 
+ Container openproject_local Creating 
+ Container nextcloud_postgres Creating 
+ Container nextcloud_redis Created 
+ Container nextcloud_postgres Created 
+ Container nextcloud_app Creating 
+ Container openproject_local Created 
+ Container nextcloud_app Created 
+ Container nextcloud_postgres Starting 
+ Container nextcloud_redis Starting 
+ Container openproject_local Starting 
+ Container nextcloud_postgres Started 
+ Container nextcloud_redis Started 
+ Container nextcloud_app Starting 
+ Container openproject_local Started 
+ Container nextcloud_app Started 
+Aguardando OpenProject responder em http://localhost:8090...
+OpenProject OK.
+Aguardando Nextcloud responder em http://localhost:8091...
+Nextcloud OK.
+Monitorando abas abertas (checagem a cada 30s)...
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 3/3).
+Nenhuma aba aberta há 90s. Derrubando containers...
+ Container nextcloud_app Stopping 
+ Container openproject_local Stopping 
+ Container nextcloud_app Stopped 
+ Container nextcloud_app Removing 
+ Container nextcloud_app Removed 
+ Container nextcloud_postgres Stopping 
+ Container nextcloud_redis Stopping 
+ Container nextcloud_postgres Stopped 
+ Container nextcloud_postgres Removing 
+ Container nextcloud_postgres Removed 
+ Container nextcloud_redis Stopped 
+ Container nextcloud_redis Removing 
+ Container nextcloud_redis Removed 
+ Container openproject_local Stopped 
+ Container openproject_local Removing 
+ Container openproject_local Removed 
+ Network infraestrutura_infra Removing 
+ Network infraestrutura_infra Removed 
+===== 2026-07-16 15:54:29 - containers derrubados, encerrando =====
+++ date '+%Y-%m-%d %H:%M:%S'
++ echo '===== 2026-07-16 15:59:18 - iniciando ====='
+===== 2026-07-16 15:59:18 - iniciando =====
++ cd /home/joaobarbosa/Documentos/Projetos/Infraestrutura
++ echo 'Subindo containers...'
+Subindo containers...
++ docker compose up -d
+ Network infraestrutura_infra Creating 
+ Network infraestrutura_infra Created 
+ Container nextcloud_redis Creating 
+ Container nextcloud_postgres Creating 
+ Container openproject_local Creating 
+ Container openproject_local Created 
+ Container nextcloud_postgres Created 
+ Container nextcloud_redis Created 
+ Container nextcloud_app Creating 
+ Container nextcloud_app Created 
+ Container nextcloud_postgres Starting 
+ Container nextcloud_redis Starting 
+ Container openproject_local Starting 
+ Container nextcloud_redis Started 
+ Container nextcloud_postgres Started 
+ Container nextcloud_app Starting 
+ Container openproject_local Started 
+ Container nextcloud_app Started 
++ echo 'Aguardando OpenProject responder em http://localhost:8090...'
+Aguardando OpenProject responder em http://localhost:8090...
+++ curl -sL -o /dev/null -w '%{http_code}' http://localhost:8090
++ '[' 000 = 200 ']'
++ sleep 3
+++ curl -sL -o /dev/null -w '%{http_code}' http://localhost:8090
++ '[' 000 = 200 ']'
++ sleep 3
+===== 2026-07-16 16:01:13 - iniciando =====
+Subindo containers...
+ Container nextcloud_postgres Running 
+ Container nextcloud_redis Running 
+ Container nextcloud_app Running 
+ Container openproject_local Running 
+Aguardando OpenProject responder em http://localhost:8090...
+OpenProject OK.
+Aguardando Nextcloud responder em http://localhost:8091...
+Nextcloud OK.
+Monitorando abas abertas (checagem a cada 30s)...
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 3/3).
+Nenhuma aba aberta há 90s. Derrubando containers...
+ Container nextcloud_app Stopping 
+ Container openproject_local Stopping 
+ Container nextcloud_app Stopped 
+ Container nextcloud_app Removing 
+ Container nextcloud_app Removed 
+ Container nextcloud_postgres Stopping 
+ Container nextcloud_redis Stopping 
+ Container nextcloud_postgres Stopped 
+ Container nextcloud_postgres Removing 
+ Container nextcloud_postgres Removed 
+ Container nextcloud_redis Stopped 
+ Container nextcloud_redis Removing 
+ Container nextcloud_redis Removed 
+ Container openproject_local Stopped 
+ Container openproject_local Removing 
+ Container openproject_local Removed 
+ Network infraestrutura_infra Removing 
+ Network infraestrutura_infra Removed 
+===== 2026-07-16 16:10:27 - containers derrubados, encerrando =====
+===== 2026-07-16 16:12:04 - iniciando =====
+Subindo containers...
+ Container nextcloud_redis Running 
+ Container nextcloud_postgres Running 
+ Container nextcloud_app Running 
+ Container openproject_local Running 
+Aguardando OpenProject responder em http://localhost:8090...
+OpenProject OK.
+Aguardando Nextcloud responder em http://localhost:8091...
+Nextcloud OK.
+Monitorando abas abertas (checagem a cada 30s)...
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 3/3).
+Nenhuma aba aberta há 90s. Derrubando containers...
+ Container openproject_local Stopping 
+ Container nextcloud_app Stopping 
+ Container nextcloud_app Stopped 
+ Container nextcloud_app Removing 
+ Container nextcloud_app Removed 
+ Container nextcloud_redis Stopping 
+ Container nextcloud_postgres Stopping 
+ Container nextcloud_redis Stopped 
+ Container nextcloud_redis Removing 
+ Container nextcloud_postgres Stopped 
+ Container nextcloud_postgres Removing 
+ Container nextcloud_redis Removed 
+ Container nextcloud_postgres Removed 
+ Container openproject_local Stopped 
+ Container openproject_local Removing 
+ Container openproject_local Removed 
+ Network infraestrutura_infra Removing 
+ Network infraestrutura_infra Removed 
+===== 2026-07-16 16:15:34 - containers derrubados, encerrando =====
+===== 2026-07-16 17:26:03 - iniciando =====
+Subindo containers...
+ Container openproject_local Running 
+ Container nextcloud_postgres Running 
+ Container nextcloud_redis Running 
+ Container nextcloud_app Running 
+Aguardando OpenProject responder em http://localhost:8090...
+===== 2026-07-16 17:26:12 - iniciando =====
+Subindo containers...
+ Container nextcloud_postgres Running 
+ Container nextcloud_redis Running 
+ Container openproject_local Running 
+ Container nextcloud_app Running 
+Aguardando OpenProject responder em http://localhost:8090...
+===== 2026-07-16 17:26:57 - iniciando =====
+Subindo containers...
+ Container nextcloud_postgres Running 
+ Container openproject_local Running 
+ Container nextcloud_redis Running 
+ Container nextcloud_app Running 
+Aguardando OpenProject responder em http://localhost:8090...
+OpenProject OK.
+Aguardando Nextcloud responder em http://localhost:8091...
+OpenProject OK.
+Aguardando Nextcloud responder em http://localhost:8091...
+OpenProject OK.
+Aguardando Nextcloud responder em http://localhost:8091...
+Nextcloud OK.
+Nextcloud OK.
+Nextcloud OK.
+Monitorando abas abertas (checagem a cada 30s)...
+Monitorando abas abertas (checagem a cada 30s)...
+Monitorando abas abertas (checagem a cada 30s)...
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 1/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 2/3).
+Nenhuma conexão ativa às portas 8090/8091 (falha 3/3).
+Nenhuma aba aberta há 90s. Derrubando containers...
+Nenhuma conexão ativa às portas 8090/8091 (falha 3/3).
+Nenhuma aba aberta há 90s. Derrubando containers...
+Nenhuma conexão ativa às portas 8090/8091 (falha 3/3).
+Nenhuma aba aberta há 90s. Derrubando containers...
+ Container openproject_local Stopping 
+ Container nextcloud_app Stopping 
+ Container nextcloud_app Stopping 
+ Container openproject_local Stopping 
+ Container nextcloud_app Stopping 
+ Container openproject_local Stopping 
+ Container nextcloud_app Stopped 
+ Container nextcloud_app Stopped 
+ Container nextcloud_app Removing 
+ Container nextcloud_app Removing 
+ Container nextcloud_app Stopped 
+ Container nextcloud_app Removing 
+ Container nextcloud_app Removed 
+ Container nextcloud_redis Stopping 
+ Container nextcloud_postgres Stopping 
+ Container nextcloud_app Removed 
+ Container nextcloud_postgres Stopping 
+ Container nextcloud_redis Stopping 
+ Container nextcloud_app Removed 
+ Container nextcloud_postgres Stopping 
+ Container nextcloud_redis Stopping 
+ Container nextcloud_postgres Stopped 
+ Container nextcloud_postgres Stopped 
+ Container nextcloud_postgres Removing 
+ Container nextcloud_postgres Removing 
+ Container nextcloud_postgres Removed 
+ Container nextcloud_postgres Stopped 
+ Container nextcloud_postgres Removing 
+ Container nextcloud_postgres Removed 
+ Container nextcloud_postgres Removed 
+ Container nextcloud_redis Stopped 
+ Container nextcloud_redis Stopped 
+ Container nextcloud_redis Removing 
+ Container nextcloud_redis Removing 
+ Container nextcloud_redis Stopped 
+ Container nextcloud_redis Removing 
+ Container nextcloud_redis Removed 
+ Container nextcloud_redis Removed 
+ Container nextcloud_redis Removed 
+ Container openproject_local Stopped 
+ Container openproject_local Stopped 
+ Container openproject_local Removing 
+ Container openproject_local Removing 
+ Container openproject_local Stopped 
+ Container openproject_local Removing 
+ Container openproject_local Removed 
+ Container openproject_local Removed 
+ Network infraestrutura_infra Removing 
+ Network infraestrutura_infra Removing 
+ Container openproject_local Removed 
+===== 2026-07-16 17:31:34 - containers derrubados, encerrando =====
+ Network infraestrutura_infra Removed 
+ Network infraestrutura_infra No resource found to remove 
+===== 2026-07-16 17:31:34 - containers derrubados, encerrando =====
+===== 2026-07-16 17:31:34 - containers derrubados, encerrando =====
